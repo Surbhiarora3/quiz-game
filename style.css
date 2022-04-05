@@ -33,3 +33,6 @@ input {
     cursor: pointer;
 }
 
+#submit{
+    font-size: medium;
+}

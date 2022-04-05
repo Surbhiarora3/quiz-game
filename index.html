@@ -38,7 +38,15 @@
     Score
     </button>
 </div>
-<element onclick = "fun()">  
+<button onclick = "setTimeout(myVar)">  </button>
+    <script>
+        let myVar = setInterval(myTimer ,1000);
+        function myTimer() {
+          const d = new Date();
+          document.getElementById("demo").innerHTML = d.toLocaleTimeString();
+        }
+        </script>
+        
 
 
 </div>
