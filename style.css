@@ -1,0 +1,18 @@
+*{
+    margin :0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 400;
+}
+
+html{
+    font-size: medium;
+}
+.main-div{
+    width:100vw ;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    background-color: aqua;
+}
