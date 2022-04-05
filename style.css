@@ -1,9 +1,8 @@
 *{
     margin :0;
-    padding: 0;
-    box-sizing: border-box;
+    font-size: x-large;
     font-family: 'Times New Roman', Times, serif;
-    font-weight: 400;
+    
 }
 
 html{
@@ -15,4 +14,22 @@ html{
     display: grid;
     place-items: center;
     background-color: aqua;
+    font-size: x-large;
 }
+
+.inner-div{
+    width: 40vw;
+    font-style: oblique;
+    color: purple;
+    font-weight: 400;
+}
+
+.inner-div li {
+    font-size: 2rem;
+    list-style: none;
+
+}
+input {
+    cursor: pointer;
+}
+
