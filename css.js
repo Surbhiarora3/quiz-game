@@ -1,4 +1,4 @@
-// start.addEventListener ('click',() => {
+
 const quiz=[
  {   
 question:"Question1: What is HTML?",
@@ -84,31 +84,13 @@ answers.forEach((currentAnswerElement) => {
  return answer;
 };
 
-//Timer-start
-var el = document.getElementById("timer"),
-  mins = 2,
-  secs = 0;
 
-function countDown() {
-  if (secs || mins) {
-    setTimeout(countDown, 100); // Should be 1000, but I'm impatient
-  }
-  el.innerHTML = mins + ":" + (secs.toString().length < 2 ? "0" + secs : secs); // Pad number
-  secs -= 1;
-  if (secs < 0) {
-    mins -= 1;
-    secs = 59;
-  }
-}
 
-//countDown();
-
-//Timer-end
 const deselectAll=()=>{
     answers.forEach((currentAnswerElement)=> currentAnswerElement.checkedAnswer =false );
 }
 submit.addEventListener ('click',() => {
-    //countDown();
+    
 
     var answer;
     const CheckedAnswer = getCheckAnswer();
