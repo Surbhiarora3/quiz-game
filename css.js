@@ -1,3 +1,4 @@
+// start.addEventListener ('click',() => {
 const quiz=[
  {   
 question:"Question1: What is HTML?",
@@ -48,11 +49,14 @@ const click = document.querySelectorAll('.click');
 
 const answers = document.querySelectorAll('.answer');
 
- const showscore = document.querySelector('#showscore');
+const showscore = document.querySelector('#showscore');
+
+const init = document.querySelector('#inName');
 let questionCount= 0;
 let score = 0;
 
 const loadQuestion = () => {
+    
 
     const questionList = quiz[questionCount];
 
@@ -67,65 +71,121 @@ const loadQuestion = () => {
 
 loadQuestion();
 
+
 const getCheckAnswer = () => {
 let answer;
-answers.forEach((currentAnswerElement)=>{
-    if(currentAnswerElement.checkede){
+
+answers.forEach((currentAnswerElement) => {
+    if(currentAnswerElement.checked) {
         answer = currentAnswerElement.id;
     }
     
 });
-
-return answer;
-
+ return answer;
 };
 
+//Timer-start
+var el = document.getElementById("timer"),
+  mins = 2,
+  secs = 0;
+
+function countDown() {
+  if (secs || mins) {
+    setTimeout(countDown, 100); // Should be 1000, but I'm impatient
+  }
+  el.innerHTML = mins + ":" + (secs.toString().length < 2 ? "0" + secs : secs); // Pad number
+  secs -= 1;
+  if (secs < 0) {
+    mins -= 1;
+    secs = 59;
+  }
+}
+
+//countDown();
+
+//Timer-end
 const deselectAll=()=>{
     answers.forEach((currentAnswerElement)=> currentAnswerElement.checkedAnswer =false );
 }
-  
-
 submit.addEventListener ('click',() => {
+    //countDown();
+
+    var answer;
     const CheckedAnswer = getCheckAnswer();
     console.log(CheckedAnswer);
 
-    if (CheckedAnswer == quiz [questionCount].ans){
+    if (CheckedAnswer == quiz[questionCount].ans){
         score++;
-    };
+        // reviewAnswer.innerHTML= "Correct"
+        answer="Correct";
+
+    }
+    else
+    {
+        // reviewAnswer.innerHTML= "Wrong"
+        answer="Wrong";
+    }
+    
+   
+
     questionCount++;
 
-    if (questionCount <quiz.length){
+    // if (questionCount <quiz.length ){
+        if (questionCount <quiz.length ){
+
         loadQuestion();
+        reviewAnswer.innerHTML=answer;
     }
     else{
-        showscore.innerHTML= score;
+        //SS
+        finalResult.innerHTML="Final Results: "
+        //SS
+        showscore.innerHTML= score;  
 
-        // <h3>you scored ${} /${quiz.length}</h3>
+    initials = document.createElement("input"); 
+    initials.setAttribute("id", "initails-input"); 
+    initials.setAttribute("type", "text"); 
+    initials.setAttribute("name", "iniatials"); 
+    initials.setAttribute("placeholder", "Enter Initials here"); 
+    init.appendChild(initials);
+        //reviewAnswer.innerHTML=answer;
+        
+        
+    // create save button elemetn
+    saveButtonEl = document.createElement("button");
+    saveButtonEl.setAttribute("id" , "save-btn");
+    saveButtonEl.setAttribute("class" ,"save-btn");
+    saveButtonEl.setAttribute("type" , "submit");
+    saveButtonEl.textContent = "Save Score";
+
+    init.appendChild(saveButtonEl);
+
+    init.addEventListener("submit", viewHighScores);
     }
+    function savedScores(){
+    e.preventDefault();
+    var name = document.querySelector("#initails-input").value;
+    savedInit(name);
+    loadSaveScores();
+    }   
+    var savedInit = function(initails) {
+        localStorage.setItem("initails", JSON.stringify(initails));
+    }
+    var savedScore = function() {
+        localStorage.setItem("", JSON.stringify(score));
+    }
+function loadSaveScores() {
+    
+    var savedInit = localStorage.getItem("initails");
 
+   
+    savedInit = JSON.parse(savedInit);
 
-    showscore.classList.remove('scoreArea');
+    document.getElementById("highScores").innerHTML = savedInit + " - " + savedScore;
+   
+
+  
+}   
 
 });
-
-function Timer()
-    {
-         alert("You are out of time!");
-    }
-
-
-
-
-
-
-// var words =["Surbhi", "Aryan", "Aarohi", "Sumit"]
-// var choosenword=words[Math.floor(Math.random()*words.length)];
-// choosenword = choosenword.split("")
-// console.log("choosenword", choosenword)
-// var userGuessarray=[];
-// for (let i =0; i<choosenword.length;i++){
-//     userGuessarray.push("")
-// }
-// console.log("userguess:" , userGuessarray)
-// wordpara.textcontent = "us"
 

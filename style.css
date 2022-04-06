@@ -5,20 +5,20 @@
     
 }
 
-html{
+/* html{
     font-size: medium;
-}
+} */
 .main-div{
     width:100vw ;
     min-height: 100vh;
-    display: grid;
+    /* display: grid; */
     place-items: center;
     background-color: aqua;
     font-size: x-large;
 }
 
 .inner-div{
-    width: 40vw;
+    /* width: 40vw; */
     font-style: oblique;
     color: purple;
     font-weight: 400;
@@ -33,6 +33,7 @@ input {
     cursor: pointer;
 }
 
-#submit{
+/* #submit{
     font-size: medium;
-}
+    color: black;
+} */

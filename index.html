@@ -9,9 +9,11 @@
 </head>
 
 <body>
-<div class=" main-div"> 
-
+<div></div>
+<!-- <div class=" main-div" ><button id="start">Start</button> </div> -->
+<div class=" main-div" > 
 <div class="inner-div">
+    <div id="timer"></div>
     <h2 class="question"></h2>
     <ul>
         <li>
@@ -32,26 +34,25 @@
         </li>
         
     </ul>
-<button id="submit">Submit</button>
-<div id="showscore" class = "scoreArea">
-    <button>
-    Score
-    </button>
-</div>
-<button onclick = "setTimeout(myVar)">  </button>
-    <script>
-        let myVar = setInterval(myTimer ,1000);
-        function myTimer() {
-          const d = new Date();
-          document.getElementById("demo").innerHTML = d.toLocaleTimeString();
-        }
-        </script>
-        
-
+        <button id="submit">Submit</button>
+        <div>
+         
+            <div id="reviewAnswer" >
+                </div>
+            <div id="finalResult" class = "scoreArea"></div>
+            <form id="inName" class="inName"></form>
+        </div>
+       
+            <div id="showscore" class = "scoreArea">
+                <div id="highscores"></div>
+           
+             </div>
+         
 
 </div>
-
 </div>
+
+
 
     <script src = "css.js" > </script>
     
